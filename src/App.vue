@@ -1,12 +1,14 @@
-<script setup>
-</script>
-
 <template>
   <div>
+    <!-- svg使用 -->
+
     <h1>11111</h1>
+    <CSVG href="gift"  />
   </div>
 </template>
-
+<script setup>
+import CSVG from "base/SVG.vue";
+</script>
 <style scoped>
 .logo {
   height: 6em;
