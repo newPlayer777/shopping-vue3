@@ -1,21 +1,29 @@
 <template>
-  <svg>
-    <use :href="`#icon-${href}`" />
+  <svg :style="{ width: size ? size : width, height: size ? size : height }">
+    <use :href="`#icon-${href}`" :fill="color" />
   </svg>
 </template>
-<script>
-export default {
-  name: "CSVG",
-  props: {
-    href: {
-      type: String,
-      required: true,
-    },
+
+<script setup lang="js">
+const props = defineProps({
+  href: {
+    type: String,
+    required: true,
   },
-  setup(props) {
-    return {
-      href: props.href,
-    };
+  color: {
+    type: String ,
+    default: undefined,
   },
-};
+  //默认svg宽高一致填写size，不一致填写width和height
+  size: {
+    type: String,
+  },
+  width: {
+    type: String,
+  },
+  height: {
+    type: String,
+  },
+});
+console.log('>>>>>>>>>>>>>>>>>>>>');
 </script>

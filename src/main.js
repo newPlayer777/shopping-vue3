@@ -2,11 +2,14 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 //svg配置代码
 import 'virtual:svg-icons-register'
-const title = document.querySelector('.title')
-//获取生产环境信息
-const envInfo = import.meta.env
-//设置标题
-title.innerHTML = envInfo.VITE_APP_TITLE
+
+//全局引入组件
+import initComps from '@utils/initComp.js';
+//配置element-plus
+import EleUICFG from '@utils/initEleUI.js';
 
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+// 挂载应用
+app.use(EleUICFG).use(initComps).mount('#app');

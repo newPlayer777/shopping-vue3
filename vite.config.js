@@ -10,7 +10,6 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
@@ -21,7 +20,7 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-    //将sgv图放到src/assets/icons/svg下
+    //将svg图放到src/assets/icons/svg下
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[dir]-[name]',
@@ -32,6 +31,7 @@ export default defineConfig({
       //配置别名
       "@": path.resolve("./src"), //设置别名为src 用@替换src
       "base": path.resolve("./src/components/base"),
+      "@utils": path.resolve("./src/utils"),
     }
   }
 })
