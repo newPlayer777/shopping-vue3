@@ -10,21 +10,40 @@
     <div class="cc">
       <CTest />
     </div>
+    <div>
+      {{ username }}
+    </div>
     <div class="progress">
       <el-rate
         v-model="value"
         :texts="['oops', 'disappointed', 'normal', 'good', 'great']"
         show-text
       />
-      
-    <el-button type="success">Success</el-button>
+
+      <el-button type="success">Success</el-button>
     </div>
   </div>
 </template>
 <script setup lang="js">
-import { ref } from 'vue'
-
+import http from '@axios/httpAxios.js'
+import { ref,onMounted } from 'vue'
+import axios from 'axios'
 const value = ref()
+const username = ref('张三')
+const fetchApi  = ()=>{
+  http.post('/login',
+  {
+    aa:'11111',bb:'ccccc'
+  }).then(res=>{
+    username.value = res.data.message
+  } ).catch(err=>{
+    // console.log(err)
+    console.log('>>>>>>>>>>>>>>>>>>>接口报错');
+  })
+}
+onMounted(()=>{
+  fetchApi()
+} )
 </script>
 <style scoped>
 .aa {

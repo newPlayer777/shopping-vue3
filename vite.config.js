@@ -32,6 +32,7 @@ export default defineConfig({
       "@": path.resolve("./src"), //设置别名为src 用@替换src
       "base": path.resolve("./src/components/base"),
       "@utils": path.resolve("./src/utils"),
+      "@axios": path.resolve("./src/utils/axios"),
     }
   }
 })
